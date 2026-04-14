@@ -5,14 +5,20 @@ const catGif = document.getElementById("cat-gif");
 const mainText = document.getElementById("main-text");
 const result = document.getElementById("result");
 
-// 💖 SOLO al click en Sí (esto evita bloqueo 100%)
+// 🎵 v-day: primer click activa música
+function startMusic() {
+    if (!music) return;
+
+    music.volume = 0.5;
+    music.play().catch(() => {});
+
+    document.removeEventListener("click", startMusic);
+}
+
+document.addEventListener("click", startMusic);
+
+// 💖 SI
 yesBtn.addEventListener("click", () => {
-
-    if (music) {
-        music.volume = 0.5;
-        music.play().catch(err => console.log(err));
-    }
-
     mainText.innerHTML = "💖 ¡Sabía que dirías que sí!";
     result.innerHTML = "💍 Eres mía bb peshoshaaa 💕";
 
