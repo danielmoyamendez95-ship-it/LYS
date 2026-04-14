@@ -1,31 +1,36 @@
 const yesBtn = document.getElementById("yes-btn");
 const noBtn = document.getElementById("no-btn");
-const result = document.getElementById("result");
 const music = document.getElementById("bg-music");
 const catGif = document.getElementById("cat-gif");
 const mainText = document.getElementById("main-text");
+const result = document.getElementById("result");
 
-// 🎵 activar música con primer click (necesario en GitHub Pages)
-document.addEventListener("click", () => {
-    if (music && music.paused) {
-        music.volume = 0.5;
-        music.play().catch(err => console.log("Error audio:", err));
-    }
-}, { once: true });
+// 🎵 activar música estilo v-day (primer toque)
+function startMusic() {
+    if (!music) return;
 
-// 💖 BOTÓN SÍ
+    music.volume = 0.5;
+
+    music.play().catch(() => {});
+
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+}
+
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
+
+// 💖 SI
 yesBtn.addEventListener("click", () => {
     mainText.innerHTML = "💖 ¡Sabía que dirías que sí!";
     result.innerHTML = "💍 Eres mía bb peshoshaaa 💕";
 
-    // cambiar GIF
     catGif.src = "https://media.tenor.com/2roX3uxz_68AAAAC/cat-love.gif";
 
-    // fondo más romántico
     document.body.style.background = "linear-gradient(135deg, #ff9a9e, #fad0c4)";
 });
 
-// 😡 BOTÓN NO (se escapa)
+// 😡 NO se escapa
 noBtn.addEventListener("mouseover", () => {
     noBtn.style.position = "absolute";
     noBtn.style.top = Math.random() * 80 + "%";
