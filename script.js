@@ -3,25 +3,29 @@ const noBtn = document.getElementById("no-btn");
 const result = document.getElementById("result");
 const music = document.getElementById("bg-music");
 const catGif = document.getElementById("cat-gif");
+const mainText = document.getElementById("main-text");
 
-// 🎵 música al primer click (evita bloqueo del navegador)
+// 🎵 activar música con primer click (necesario en GitHub Pages)
 document.addEventListener("click", () => {
     if (music && music.paused) {
-        music.play();
+        music.volume = 0.5;
+        music.play().catch(err => console.log("Error audio:", err));
     }
 }, { once: true });
 
 // 💖 BOTÓN SÍ
 yesBtn.addEventListener("click", () => {
-    result.innerHTML = "💍 ¡Sabía que dirías que sí porque eres MIA mi bb peshoshaaa! 💖✨";
+    mainText.innerHTML = "💖 ¡Sabía que dirías que sí!";
+    result.innerHTML = "💍 Eres mía bb peshoshaaa 💕";
 
-    // cambia el GIF cuando dice que sí
+    // cambiar GIF
     catGif.src = "https://media.tenor.com/2roX3uxz_68AAAAC/cat-love.gif";
 
+    // fondo más romántico
     document.body.style.background = "linear-gradient(135deg, #ff9a9e, #fad0c4)";
 });
 
-// 😡 BOTÓN NO (huye)
+// 😡 BOTÓN NO (se escapa)
 noBtn.addEventListener("mouseover", () => {
     noBtn.style.position = "absolute";
     noBtn.style.top = Math.random() * 80 + "%";
