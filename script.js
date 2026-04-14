@@ -5,7 +5,7 @@ const catGif = document.getElementById("cat-gif");
 const mainText = document.getElementById("main-text");
 const result = document.getElementById("result");
 
-// 🎵 música (v-day real fix)
+// 🎵 música estable (v-day real fix)
 function playMusic() {
     if (!music) return;
 
@@ -13,14 +13,14 @@ function playMusic() {
     music.play().catch(() => {});
 }
 
-// se activa con cualquier toque
-document.body.addEventListener("pointerdown", playMusic, { once: true });
+// 🔥 MÁS confiable que body
+document.addEventListener("pointerdown", playMusic, { once: true });
 
 
 // 💖 SI
 yesBtn.addEventListener("click", () => {
 
-    playMusic(); // extra seguridad
+    playMusic(); // doble seguridad
 
     mainText.innerHTML = "💖 ¡Sabía que dirías que sí!";
     result.innerHTML = "💍 Eres mía bb peshoshaaa 💕";
