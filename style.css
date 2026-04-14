@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    text-align: center;
+    overflow: hidden;
+    color: white;
+}
+
+.container {
+    margin-top: 60px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+.gif-container img {
+    width: 220px;
+    border-radius: 20px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    font-size: 20px;
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#yes-btn {
+    background: #ff4d6d;
+    color: white;
+}
+
+#no-btn {
+    background: #333;
+    color: white;
+    position: relative;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 28px;
+}
+
+.floating-gifs img {
+    position: absolute;
+    width: 80px;
+    opacity: 0.8;
+    animation: float 6s infinite ease-in-out;
+}
+
+.floating-gifs img:nth-child(1) { top: 10%; left: 10%; }
+.floating-gifs img:nth-child(2) { top: 50%; left: 80%; }
+.floating-gifs img:nth-child(3) { top: 70%; left: 20%; }
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
