@@ -1,39 +1,39 @@
-const yesBtn = document.getElementById("yes-btn");
-const noBtn = document.getElementById("no-btn");
-const music = document.getElementById("bg-music");
-const catGif = document.getElementById("cat-gif");
-const mainText = document.getElementById("main-text");
-const result = document.getElementById("result");
+window.addEventListener("DOMContentLoaded", () => {
 
-// 🎵 música estable (v-day real fix)
-function playMusic() {
-    if (!music) return;
+    const yesBtn = document.getElementById("yes-btn");
+    const noBtn = document.getElementById("no-btn");
+    const music = document.getElementById("bg-music");
+    const catGif = document.getElementById("cat-gif");
+    const mainText = document.getElementById("main-text");
+    const result = document.getElementById("result");
 
-    music.volume = 0.5;
-    music.play().catch(() => {});
-}
+    // 🎵 música
+    function playMusic() {
+        if (!music) return;
+        music.volume = 0.5;
+        music.play().catch(() => {});
+    }
 
-// 🔥 MÁS confiable que body
-document.addEventListener("pointerdown", playMusic, { once: true });
+    document.addEventListener("pointerdown", playMusic, { once: true });
 
+    // 💖 SI
+    yesBtn.addEventListener("click", () => {
 
-// 💖 SI
-yesBtn.addEventListener("click", () => {
+        playMusic();
 
-    playMusic(); // doble seguridad
+        mainText.innerHTML = "💖 ¡Sabía que dirías que sí!";
+        result.innerHTML = "💍 Eres mía bb peshoshaaa 💕";
 
-    mainText.innerHTML = "💖 ¡Sabía que dirías que sí!";
-    result.innerHTML = "💍 Eres mía bb peshoshaaa 💕";
+        catGif.src = "https://media.tenor.com/2roX3uxz_68AAAAC/cat-love.gif";
 
-    catGif.src = "https://media.tenor.com/2roX3uxz_68AAAAC/cat-love.gif";
+        document.body.style.background = "linear-gradient(135deg, #ff9a9e, #fad0c4)";
+    });
 
-    document.body.style.background = "linear-gradient(135deg, #ff9a9e, #fad0c4)";
-});
+    // 😡 NO
+    noBtn.addEventListener("mouseover", () => {
+        noBtn.style.position = "absolute";
+        noBtn.style.top = Math.random() * 80 + "%";
+        noBtn.style.left = Math.random() * 80 + "%";
+    });
 
-
-// 😡 NO (se escapa)
-noBtn.addEventListener("mouseover", () => {
-    noBtn.style.position = "absolute";
-    noBtn.style.top = Math.random() * 80 + "%";
-    noBtn.style.left = Math.random() * 80 + "%";
 });
