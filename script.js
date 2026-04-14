@@ -12,7 +12,7 @@ document.addEventListener("click", () => {
 
 // 💖 SI
 yesBtn.addEventListener("click", () => {
-    result.innerHTML = "💍 ¡Sabía que dirías que sí! 💖✨";
+    result.innerHTML = "💍 ¡Sabía que dirías que sí porque eres MIA mi bb peshoshaaa! 💖✨";
     document.body.style.background = "linear-gradient(135deg, #ff9a9e, #fad0c4)";
 });
 
