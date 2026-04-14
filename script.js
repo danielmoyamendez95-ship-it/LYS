@@ -5,20 +5,14 @@ const catGif = document.getElementById("cat-gif");
 const mainText = document.getElementById("main-text");
 const result = document.getElementById("result");
 
-// 🎵 música estilo v-day (primer toque en cualquier parte)
-function startMusic() {
-    if (!music) return;
-
-    music.volume = 0.5;
-    music.play().catch(() => {});
-}
-
-// activa con cualquier interacción
-document.addEventListener("click", startMusic, { once: true });
-document.addEventListener("touchstart", startMusic, { once: true });
-
-// 💖 SI
+// 💖 SOLO al click en Sí (esto evita bloqueo 100%)
 yesBtn.addEventListener("click", () => {
+
+    if (music) {
+        music.volume = 0.5;
+        music.play().catch(err => console.log(err));
+    }
+
     mainText.innerHTML = "💖 ¡Sabía que dirías que sí!";
     result.innerHTML = "💍 Eres mía bb peshoshaaa 💕";
 
