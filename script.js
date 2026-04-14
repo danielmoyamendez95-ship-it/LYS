@@ -5,20 +5,17 @@ const catGif = document.getElementById("cat-gif");
 const mainText = document.getElementById("main-text");
 const result = document.getElementById("result");
 
-// 🎵 activar música estilo v-day (primer toque)
+// 🎵 música estilo v-day (primer toque en cualquier parte)
 function startMusic() {
     if (!music) return;
 
     music.volume = 0.5;
-
     music.play().catch(() => {});
-
-    document.removeEventListener("click", startMusic);
-    document.removeEventListener("touchstart", startMusic);
 }
 
-document.addEventListener("click", startMusic);
-document.addEventListener("touchstart", startMusic);
+// activa con cualquier interacción
+document.addEventListener("click", startMusic, { once: true });
+document.addEventListener("touchstart", startMusic, { once: true });
 
 // 💖 SI
 yesBtn.addEventListener("click", () => {
