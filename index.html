@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres casarte conmigo LYS? 💍</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #ffe6eb;
+            margin-top: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #yes-btn { background: #ff4d6d; color: white; }
+        #no-btn { background: #ccc; }
+    </style>
+</head>
+<body>
+
+<h1>¿Quieres casarte conmigo LYS? 💍</h1>
+
+<button id="yes-btn" onclick="handleYesClick()">Sí 💖</button>
+<button id="no-btn" onclick="handleNoClick()">No 😡</button>
+
+<script>
+function handleYesClick() {
+    document.body.innerHTML = `
+    <div style="text-align:center; margin-top:50px;">
+        <h1>💖 Yo sabia que tu ibas a ser mi Esposita 👑</h1>
+        <p style="font-size:20px;">
+        porque eres solo MIA mi bb peshoshaa 😘
+        </p>
+    </div>
+    `;
+}
+
+function handleNoClick() {
+    alert("😡 No es una opción válida jajaja");
+}
+</script>
+
+</body>
+</html>
