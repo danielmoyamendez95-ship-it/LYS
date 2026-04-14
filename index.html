@@ -1,51 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres casarte conmigo LYS? 💍</title>
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            background: #ffe6eb;
-            margin-top: 50px;
-        }
-        button {
-            font-size: 20px;
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        #yes-btn { background: #ff4d6d; color: white; }
-        #no-btn { background: #ccc; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Te casas conmigo Lys? 💍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>¿Quieres casarte conmigo LYS? 💍</h1>
+<div class="hearts-bg"></div>
 
-<button id="yes-btn" onclick="handleYesClick()">Sí 💖</button>
-<button id="no-btn" onclick="handleNoClick()">No 😡</button>
+<!-- GIFs flotantes -->
+<div class="floating-gifs">
+    <img src="https://media.tenor.com/0AVbKGYH8hMAAAAC/cute-love.gif">
+    <img src="https://media.tenor.com/1QeZ1Qwz2yAAAAAC/cat-heart.gif">
+    <img src="https://media.tenor.com/6dZ2g1cQ1uEAAAAC/love-hearts.gif">
+</div>
 
-<script>
-function handleYesClick() {
-    document.body.innerHTML = `
-    <div style="text-align:center; margin-top:50px;">
-        <h1>💖 Yo sabia que tu ibas a ser mi Esposita 👑</h1>
-        <p style="font-size:20px;">
-        porque eres solo MIA mi bb peshoshaa 😘
-        </p>
+<div class="container">
+    <h1>¿Quieres casarte conmigo Lys? 💍</h1>
+
+    <div class="gif-container">
+        <img id="cat-gif" src="https://media.tenor.com/EBV7OT7ACfwAAAAj/u-u-qua-qua-u-quaa.gif">
     </div>
-    `;
-}
 
-function handleNoClick() {
-    alert("😡 No es una opción válida jajaja");
-}
-</script>
+    <div class="buttons">
+        <button id="yes-btn">Sí 💖</button>
+        <button id="no-btn">No 😡</button>
+    </div>
 
+    <div id="result"></div>
+</div>
+
+<!-- Música -->
+<audio id="bg-music" loop>
+    <source src="music/glue-song.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
 </body>
 </html>
