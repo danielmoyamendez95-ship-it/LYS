@@ -1,35 +1,28 @@
-const yesBtn = document.getElementById("yes-btn");
-const noBtn = document.getElementById("no-btn");
 const music = document.getElementById("bg-music");
-const catGif = document.getElementById("cat-gif");
-const mainText = document.getElementById("main-text");
-const result = document.getElementById("result");
 
-// 🎵 v-day: primer click activa música
-function startMusic() {
+// 🔥 desbloqueo real de audio (robusto)
+function unlockAudio() {
     if (!music) return;
 
     music.volume = 0.5;
-    music.play().catch(() => {});
 
-    document.removeEventListener("click", startMusic);
+    // forzar carga
+    music.load();
+
+    // intentar reproducir
+    const p = music.play();
+
+    if (p !== undefined) {
+        p.then(() => {
+            console.log("🎵 audio funcionando");
+        }).catch(() => {
+            console.log("🔒 bloqueado hasta interacción real");
+        });
+    }
+
+    // evitar múltiples intentos
+    document.removeEventListener("pointerdown", unlockAudio);
 }
 
-document.addEventListener("click", startMusic);
-
-// 💖 SI
-yesBtn.addEventListener("click", () => {
-    mainText.innerHTML = "💖 ¡Sabía que dirías que sí!";
-    result.innerHTML = "💍 Eres mía bb peshoshaaa 💕";
-
-    catGif.src = "https://media.tenor.com/2roX3uxz_68AAAAC/cat-love.gif";
-
-    document.body.style.background = "linear-gradient(135deg, #ff9a9e, #fad0c4)";
-});
-
-// 😡 NO se escapa
-noBtn.addEventListener("mouseover", () => {
-    noBtn.style.position = "absolute";
-    noBtn.style.top = Math.random() * 80 + "%";
-    noBtn.style.left = Math.random() * 80 + "%";
-});
+// 🔥 MÁS confiable que "click"
+document.addEventListener("pointerdown", unlockAudio);
